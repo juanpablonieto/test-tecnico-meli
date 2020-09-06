@@ -37,7 +37,14 @@ export const Search = () => {
                 srcSet={`${logoML} 1x, ${logoML2x} 2x`}
                 onClick={() => navigateToHome()}
             />
-            <input className="search-input" placeholder="Nunca dejes de buscar" onChange={(event) => setSearchText(event.target.value)} onKeyPress={(event) => handleKeyPress(event.key)}/>
+            <input
+                type="text"
+                aria-label="Search"
+                className="search-input"
+                placeholder="Nunca dejes de buscar"
+                onChange={(event) => setSearchText(event.target.value)}
+                onKeyPress={(event) => handleKeyPress(event.key)}
+            />
             <button className="search-button" onClick={() => search()}>
                 <img 
                     src={searchIcon}
