@@ -7,7 +7,7 @@ import { ResultsPage } from './components/ResultsPage/ResultsPage';
 
 function App() {
   return (
-    <div className="app-container">
+    <main className="app-container">
       <BrowserRouter>
         <Search />
         <Switch>
@@ -19,7 +19,7 @@ function App() {
           </>
         </Switch>
       </BrowserRouter>
-    </div>
+    </main>
   )
 }
 
