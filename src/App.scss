@@ -9,7 +9,17 @@
     height: 100%;
     padding-top: $padding-from-searchbar;
     padding-bottom: $padding-bottom;
-    padding-left: $padding-left;
-    padding-right: $padding-right;
+    padding-left: $padding-horizontal-desktop;
+    padding-right: $padding-horizontal-desktop;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .app-container {
+    
+    .page-content {
+      padding-left: $padding-horizontal-mobile;
+      padding-right: $padding-horizontal-mobile;
+    }
   }
 }

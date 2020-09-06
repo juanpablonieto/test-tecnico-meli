@@ -6,8 +6,8 @@ $search-input-height: calc(#{$searchbar-height - 25px});
 header {
     height: $searchbar-height;
     background-color: $yellow;
-    padding-left: $padding-left;
-    padding-right: $padding-right;
+    padding-left: $padding-horizontal-desktop;
+    padding-right: $padding-horizontal-desktop;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -48,5 +48,12 @@ header {
         &:focus {
             outline: none;
         }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        padding-left: $padding-horizontal-mobile;
+        padding-right: $padding-horizontal-mobile;
     }
 }

@@ -40,7 +40,7 @@ export const ItemDetail = () => {
                 : (
                     <div className="item-detail">
                         <div className="product-pic-and-description">
-                            <img className="product-pic" width={680} src={data.item.picture} alt="product_pic" />
+                            <img className="product-pic" src={data.item.picture} alt="product_pic" />
                             <div className="product-description">
                                 <span className="description-title">Descripción del producto</span>
                                 <span className="description-value">{data.item.description}</span>

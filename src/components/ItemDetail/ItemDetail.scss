@@ -67,5 +67,17 @@
             cursor: pointer;
         }
     }
+}
 
+@media screen and (max-width: 800px) {
+    .item-detail {
+        
+        .product-pic-and-description {
+            max-width: 320px;
+    
+            .product-pic {
+                max-width: 320px;
+            }
+        }
+    }
 }
