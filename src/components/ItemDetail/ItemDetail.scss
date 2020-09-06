@@ -1,0 +1,66 @@
+@import '../../styles/colors';
+
+.item-detail {
+    background-color: $white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .product-pic-and-description {
+        display: flex;
+        flex-direction: column;
+        max-width: 680px;
+
+        .product-pic {
+            max-width: 680px;
+        }
+
+        .product-description {
+            display: flex;
+            flex-direction: column;
+    
+            .description-title {
+                margin-top: 2rem;
+                font-size: 28px;
+            }
+    
+            .description-value {
+                margin-top: 2rem;
+                font-size: 16px;
+                color: $gray-light;
+            }
+        }
+    }
+
+    .product-detail {
+        display: flex;
+        flex-direction: column;
+        margin-left: 2rem;
+        
+        .product-condition {
+            font-size: 14px;
+        }
+
+        .product-title {
+            margin-top: 1rem;
+            font-size: 24px;
+        }
+
+        .product-price {
+            margin-top: 2rem;
+            font-size: 46px;
+        }
+
+        .buy-button {
+            margin-top: 2rem;
+            background-color: $blue;
+            color: $white;
+            height: 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+
+}
