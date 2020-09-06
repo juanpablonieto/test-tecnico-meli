@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { endpoint } from '../../constants/endpoint';
 import './ItemDetail.scss';
+import { adaptItemDetail } from '../../adapters/ItemDetailAdapter';
+import { Loading } from '../Loading/Loading';
 
 export const ItemDetail = () => {
     const params = useParams();
@@ -18,9 +20,9 @@ export const ItemDetail = () => {
                         method: 'GET',
                         mode: 'cors'
                     });
-                const data = await response.json();
-                setData(data);
-                console.log(data)
+                let data = await response.json();
+                data = adaptItemDetail(data);
+                setData(data)
                 setIsSearching(false);
             } catch (error) {
                 console.error(error);
@@ -34,7 +36,7 @@ export const ItemDetail = () => {
     return (
         <>
             {isSearching
-                ? <div>Cargando</div>
+                ? <Loading text={'producto'}/>
                 : (
                     <div className="item-detail">
                         <div className="product-pic-and-description">
@@ -47,7 +49,7 @@ export const ItemDetail = () => {
                         <div className="product-detail">
                                 <span className="product-condition">{`${data.item.condition} - ${data.item.sold_quantity} vendidos`}</span>
                                 <span className="product-title">{data.item.title}</span>
-                                <span className="product-price">{`$ ${data.item.price.amount}`}</span>
+                                <span className="product-price">{`${data.item.price.currency} ${data.item.price.amount}`}</span>
                                 <button className="buy-button">Comprar</button>
                             </div>
                     </div>

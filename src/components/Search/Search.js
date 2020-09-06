@@ -25,7 +25,6 @@ export const Search = () => {
     }
 
     const navigateToHome = () => {
-        setSearchText('');
         history.push('/');
     }
 

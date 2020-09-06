@@ -1,0 +1,24 @@
+@import '../../styles/colors';
+
+.loading-container {
+    text-align: center;
+    margin-top: 2rem;
+
+    .search-icon {
+        animation: rotate 3s infinite;
+    }
+
+    .loading-text {
+        font-size: 20px;
+        color: $gray-medium;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

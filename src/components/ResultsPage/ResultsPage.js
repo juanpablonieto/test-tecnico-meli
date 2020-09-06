@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { ItemResult } from './ItemResult/ItemResult';
 import { Breadcrumb } from './Breadcrumb/Breadcrumb';
 import './ResultsPage.scss';
+import { adaptResults } from '../../adapters/ResultsAdapter';
+import { Loading } from '../Loading/Loading';
 
 export const ResultsPage = () => {
     const location = useLocation();
@@ -20,7 +22,8 @@ export const ResultsPage = () => {
                         method: 'GET',
                         mode: 'cors'
                     });
-                const data = await response.json();
+                let data = await response.json();
+                data = adaptResults(data);
                 setData(data);
                 setIsSearching(false);
             } catch (error) {
@@ -36,17 +39,21 @@ export const ResultsPage = () => {
     return (
         <>
             {isSearching
-                ? <div>Cargando</div>
+                ? <Loading text={'resultados'}/>
                 : (
                     <>
                         <Breadcrumb className="breadcrumbs" breadcrumbs={data.categories} />
                         <div className="result-items">
-                            {data.items.map((item, index) => (
-                                <ItemResult
-                                    key={index}
-                                    data={item}
-                                />
-                            ))}
+                            { data.items.length
+                                ? data.items.map((item, index) => (
+                                    <ItemResult
+                                        key={index}
+                                        data={item}
+                                    />
+                                ))
+                                : <div className="no-results">{`No hay resultados 
+                                :(`}</div>
+                            }
                         </div>
                     </>
                 )
