@@ -4,6 +4,7 @@ import { endpoint } from '../../constants/endpoint';
 import './ItemDetail.scss';
 import { adaptItemDetail } from '../../adapters/ItemDetailAdapter';
 import { Loading } from '../Loading/Loading';
+import { Breadcrumb } from '../ResultsPage/Breadcrumb/Breadcrumb';
 
 export const ItemDetail = () => {
     const params = useParams();
@@ -38,24 +39,27 @@ export const ItemDetail = () => {
             {isSearching
                 ? <Loading text={'producto'}/>
                 : (
-                    <div className="item-detail">
-                        <div className="product-pic-and-description">
-                            <img className="product-pic" src={data.item.picture} alt="product_pic" />
-                            <div className="product-description">
-                                <span className="description-title">Descripción del producto</span>
-                                <span className="description-value">{data.item.description}</span>
-                            </div>
-                        </div>
-                        <div className="product-detail">
-                                <span className="product-condition">{`${data.item.condition} - ${data.item.sold_quantity} vendidos`}</span>
-                                <span className="product-title">{data.item.title}</span>
-                                <div className="product-price">
-                                    <span className="price-amount">{`${data.item.price.currency} ${data.item.price.amount}`}</span>
-                                    <span className="price-decimals">{data.item.price.decimals}</span>
+                    <>
+                        <Breadcrumb breadcrumbs={data.item.categories} />
+                        <div className="item-detail">
+                            <div className="product-pic-and-description">
+                                <img className="product-pic" src={data.item.picture} alt="product_pic" />
+                                <div className="product-description">
+                                    <span className="description-title">Descripción del producto</span>
+                                    <span className="description-value">{data.item.description}</span>
                                 </div>
-                                <button className="buy-button">Comprar</button>
                             </div>
-                    </div>
+                            <div className="product-detail">
+                                    <span className="product-condition">{`${data.item.condition} - ${data.item.sold_quantity} vendidos`}</span>
+                                    <span className="product-title">{data.item.title}</span>
+                                    <div className="product-price">
+                                        <span className="price-amount">{`${data.item.price.currency} ${data.item.price.amount}`}</span>
+                                        <span className="price-decimals">{data.item.price.decimals}</span>
+                                    </div>
+                                    <button className="buy-button">Comprar</button>
+                                </div>
+                        </div>
+                    </>
                 )} 
         </>
     )
