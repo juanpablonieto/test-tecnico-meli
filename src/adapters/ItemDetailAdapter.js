@@ -11,8 +11,8 @@ export const adaptItemDetail = (data) => {
         item: {
             ...data.item,
             price: {
-                ...data.item.price,
-                amount: amountWithSeparator,
+                amount: amountWithSeparator.split(',')[0],
+                decimals: amountWithSeparator.split(',')[1],
                 currency: currency
             },
             condition: condition

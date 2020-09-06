@@ -2,14 +2,13 @@ const axios = require('axios').default;
 const endpoint = 'https://api.mercadolibre.com';
 
 exports.getBySearch = async (search) => {
-    console.log('GET BY SEARCH:', search);
     const url = `${endpoint}/sites/MLA/search?q=${search}`
     const response = await axios.get(url);
     const data = response.data;
     const author = { // No encontré valores en el endpoint para estos campos, tal vez es un campo obsoleto?
         name: 'Juan Pablo',
         lastname: 'Nieto'
-    }
+    };
     const items = data.results.slice(0, 4).map(item => ({
         id: item.id,
         title: item.title,
@@ -36,19 +35,16 @@ exports.getBySearch = async (search) => {
 }
 
 exports.getById = async (id) => {
-    console.log('GET BY ID:', id);
     let url = `${endpoint}/items/${id}`
     let response = await axios.get(url);
     const data = response.data;
     const author = { // No encontré valores en el endpoint para estos campos, tal vez es un campo obsoleto?
         name: 'Juan Pablo',
         lastname: 'Nieto'
-    }
+    };
     url = url + '/description';
     response = await axios.get(url);
     const description = response.data.plain_text;
-    
-    
 
     return {
         // author: author,

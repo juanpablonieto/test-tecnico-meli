@@ -50,6 +50,11 @@
         .product-price {
             margin-top: 2rem;
             font-size: 46px;
+
+            .price-decimals {
+                font-size: 24px;
+                vertical-align: super;
+            }
         }
 
         .buy-button {

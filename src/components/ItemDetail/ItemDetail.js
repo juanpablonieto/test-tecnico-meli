@@ -49,7 +49,10 @@ export const ItemDetail = () => {
                         <div className="product-detail">
                                 <span className="product-condition">{`${data.item.condition} - ${data.item.sold_quantity} vendidos`}</span>
                                 <span className="product-title">{data.item.title}</span>
-                                <span className="product-price">{`${data.item.price.currency} ${data.item.price.amount}`}</span>
+                                <div className="product-price">
+                                    <span className="price-amount">{`${data.item.price.currency} ${data.item.price.amount}`}</span>
+                                    <span className="price-decimals">{data.item.price.decimals}</span>
+                                </div>
                                 <button className="buy-button">Comprar</button>
                             </div>
                     </div>
